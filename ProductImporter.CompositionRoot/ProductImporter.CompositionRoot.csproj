@@ -10,4 +10,10 @@
 		<PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\ProductImporter.Logic.Transformations\ProductImporter.Logic.Transformations.csproj" />
+	  <ProjectReference Include="..\ProductImporter.Logic\ProductImporter.Logic.csproj" />
+	  <ProjectReference Include="..\ProductImporter.Model\ProductImporter.Model.csproj" />
+	</ItemGroup>
+
 </Project>

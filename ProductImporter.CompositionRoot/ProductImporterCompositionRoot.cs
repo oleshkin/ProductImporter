@@ -1,17 +1,16 @@
-﻿
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
+﻿using Microsoft.Extensions.DependencyInjection;
 using ProductImporter.Logic.Shared;
 using ProductImporter.Logic.Source;
 using ProductImporter.Logic.Target;
 using ProductImporter.Logic.Transformation;
-using ProductImporter.Logic.Transformations;
 using ProductImporter.Logic.Transformations.Util;
-using ProductImporter.Logic; 
+using ProductImporter.Logic.Transformations;
 
+namespace ProductImporter.CompositionRoot;
 
-using var host = Host.CreateDefaultBuilder(args)
-    .ConfigureServices((context, services) =>
+public static class ProductImporterCompositionRoot
+{
+    public static IServiceCollection AddProductImporter(this IServiceCollection services)
     {
         services.AddSingleton<Configuration>();
 
@@ -28,18 +27,12 @@ using var host = Host.CreateDefaultBuilder(args)
         services.AddScoped<INameDecapitaliser, NameDecapitaliser>();
 
         services.AddScoped<IDateTimeProvider, DateTimeProvider>();
-        services.AddScoped<IReferenceAdder, ReferenceAdder>();  
+        services.AddScoped<IReferenceAdder, ReferenceAdder>();
         services.AddScoped<IReferenceGenerator, ReferenceGenerator>();
         services.AddSingleton<IProductCounter, ProductCounter>();
 
         services.AddTransient<IProductTransformer, ProductTransformer>();
 
-
-
-    })
-    .Build();
-
-var productImporter = host.Services.GetRequiredService<ProductImporter.Logic.ProductImporter>();
-productImporter.Run();
-
-
+        return services;
+    }
+}
