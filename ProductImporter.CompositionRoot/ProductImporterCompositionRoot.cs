@@ -14,7 +14,11 @@ public static class ProductImporterCompositionRoot
     public static IServiceCollection AddProductImporter(this IServiceCollection services)
     {
         services.AddProductImporterLogic();
-        services.AddProductTransformations();
+        services.AddProductTransformations(o => {
+            o.EnableCurrencyNormalizer = true;
+        });
+        // Same as above, but shorthand
+        //services.AddProductTransformations(o => o.EnableCurrencyNormalizer = true);
 
         return services;
     }
