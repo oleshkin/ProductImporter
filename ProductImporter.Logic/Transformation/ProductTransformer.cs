@@ -2,7 +2,6 @@
 using ProductImporter.Model;
 using ProductImporter.Logic.Shared;
 using ProductImporter.Logic.Transformations;
-using ProductImporter.Logic.Transformations.Util;
 
 namespace ProductImporter.Logic.Transformation;
 
@@ -24,15 +23,16 @@ public class ProductTransformer : IProductTransformer
         var transformationContext = scope.ServiceProvider.GetRequiredService<IProductTransformationContext>();
         transformationContext.SetProduct(product);
 
-        var nameCapitalizer = scope.ServiceProvider.GetRequiredService<INameDecapitaliser>();
-        var currencyNormalizer = scope.ServiceProvider.GetRequiredService<ICurrencyNormalizer>();
-        var referenceAdder = scope.ServiceProvider.GetRequiredService<IReferenceAdder>();
+        var productTransformations = scope.ServiceProvider.GetRequiredService<IEnumerable<IProductTransformations>>();
 
-        nameCapitalizer.Execute();
-        currencyNormalizer.Execute();
-        referenceAdder.Execute();
 
         Thread.Sleep(2000);
+
+        foreach (var productTransformation in productTransformations)
+        {
+            productTransformation.Execute();
+        }
+
         
         if (transformationContext.IsProductChanged())
         {

@@ -15,16 +15,16 @@ public static class DIRegistrations
         optionsModifier(options);
         if (options.EnableCurrencyNormalizer)
         {
-            services.AddScoped<ICurrencyNormalizer, CurrencyNormalizer>();
+            services.AddScoped<IProductTransformations, CurrencyNormalizer>();
         }
         else
         {
-            services.AddScoped<ICurrencyNormalizer, NullCurrencyNormalizer>();
+            services.AddScoped<IProductTransformations, NullCurrencyNormalizer>();
         }
-        services.AddScoped<INameDecapitaliser, NameDecapitaliser>();
+        services.AddScoped<IProductTransformations, NameDecapitaliser>();
 
         services.AddScoped<IDateTimeProvider, DateTimeProvider>();
-        services.AddScoped<IReferenceAdder, ReferenceAdder>();
+        services.AddScoped<IProductTransformations, ReferenceAdder>();
         services.AddScoped<IReferenceGenerator, ReferenceGenerator>();
         services.AddSingleton<IProductCounter, ProductCounter>();
         return services;

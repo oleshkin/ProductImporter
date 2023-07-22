@@ -1,6 +1,6 @@
 ﻿namespace ProductImporter.Logic.Transformations;
 
-public interface INameDecapitaliser
+public interface IProductTransformations
 {
     void Execute();
 }
