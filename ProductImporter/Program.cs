@@ -12,6 +12,6 @@ using var host = Host.CreateDefaultBuilder(args)
     .Build();
 
 var productImporter = host.Services.GetRequiredService<ProductImporter.Logic.ProductImporter>();
-productImporter.Run();
+await productImporter.RunAsync();
 
 

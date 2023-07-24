@@ -13,8 +13,13 @@ public static class DIRegistrations
     {
         services.AddTransient<IPriceParser, PriceParser>();
         services.AddTransient<IProductFormatter, ProductFormatter>();
-        services.AddTransient<IProductSource, ProductSource>();
         services.AddTransient<IProductTarget, CsvProductTarget>();
+
+        services.AddHttpClient<IProductSource, HttpProductSource>()
+            .ConfigureHttpClient(client =>
+            {
+                client.BaseAddress = new Uri("https://raw.githubusercontent.com/henrybeen/");
+            });
 
         services.AddTransient<Logic.ProductImporter>();
 
