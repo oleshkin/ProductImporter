@@ -4,6 +4,7 @@ using ProductImporter.Logic.Shared;
 using ProductImporter.Logic.Source;
 using ProductImporter.Logic.Target;
 using ProductImporter.Logic.Transformation;
+using System;
 
 namespace ProductImporter.Logic;
 
@@ -16,9 +17,11 @@ public static class DIRegistrations
         services.AddTransient<IProductTarget, CsvProductTarget>();
 
         services.AddHttpClient<IProductSource, HttpProductSource>()
-            .ConfigureHttpClient(client =>
+            .ConfigureHttpClient((serviceProvider, client) =>
             {
-                client.BaseAddress = new Uri("https://raw.githubusercontent.com/henrybeen/");
+                var config = serviceProvider.GetRequiredService<IConfiguration>();
+                var baseAddress = config.GetSection("BaseAddress").Value;
+                client.BaseAddress = new Uri(baseAddress);
             });
 
         services.AddTransient<Logic.ProductImporter>();
