@@ -7,13 +7,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductImporter", "ProductI
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{71C79E37-A7B7-48C5-A80C-0E9EA35DE526}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductImporter.Model", "ProductImporter.Model\ProductImporter.Model.csproj", "{1D8977B2-9DFF-4941-AEA4-86CC55B77D3D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductImporter.Model", "ProductImporter.Model\ProductImporter.Model.csproj", "{1D8977B2-9DFF-4941-AEA4-86CC55B77D3D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductImporter.Logic", "ProductImporter.Logic\ProductImporter.Logic.csproj", "{868192C4-7646-4EEF-B899-5D8CDC3EABB9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductImporter.Logic", "ProductImporter.Logic\ProductImporter.Logic.csproj", "{868192C4-7646-4EEF-B899-5D8CDC3EABB9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductImporter.Logic.Transformations", "ProductImporter.Logic.Transformations\ProductImporter.Logic.Transformations.csproj", "{53601698-4A4E-43FE-8C5B-5AB05B65E141}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductImporter.Logic.Transformations", "ProductImporter.Logic.Transformations\ProductImporter.Logic.Transformations.csproj", "{53601698-4A4E-43FE-8C5B-5AB05B65E141}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductImporter.CompositionRoot", "ProductImporter.CompositionRoot\ProductImporter.CompositionRoot.csproj", "{A7635A7F-9B12-473E-AEB0-38489A77DE08}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductImporter.CompositionRoot", "ProductImporter.CompositionRoot\ProductImporter.CompositionRoot.csproj", "{A7635A7F-9B12-473E-AEB0-38489A77DE08}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductImporter.Logic.Test", "ProductImporter.Logic.Test\ProductImporter.Logic.Test.csproj", "{ADA51CC0-EB34-43AD-8717-28C19CB6D9B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,10 @@ Global
 		{A7635A7F-9B12-473E-AEB0-38489A77DE08}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A7635A7F-9B12-473E-AEB0-38489A77DE08}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A7635A7F-9B12-473E-AEB0-38489A77DE08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADA51CC0-EB34-43AD-8717-28C19CB6D9B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADA51CC0-EB34-43AD-8717-28C19CB6D9B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADA51CC0-EB34-43AD-8717-28C19CB6D9B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADA51CC0-EB34-43AD-8717-28C19CB6D9B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
